@@ -19,13 +19,13 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
     <script>
-        var renderer, scene, camera, cubes = [], groups = [];
-    	var geometry = new THREE.BoxGeometry(30, 30, 30);
-        var offset = 35;
-        var animation = new TimelineMax({ repeat: -1, delay: 2 });//repeat0
-		var sizeGear = (document.querySelectorAll('.gear')[0]).getBoundingClientRect();
-		var gearW = 360;//sizeGear.width;
-		var gearH = 360;//sizeGear.height;
+        let renderer, scene, camera, cubes = [], groups = [];
+    	let geometry = new THREE.BoxGeometry(30, 30, 30);
+        let offset = 35;
+        let animation = new TimelineMax({ repeat: -1, delay: 2 });//repeat0
+		let sizeGear = (document.querySelectorAll('.gear')[0]).getBoundingClientRect();
+		let gearW = 360;//sizeGear.width;
+		let gearH = 360;//sizeGear.height;
 
         function initScene () {
             scene = new THREE.Scene();
@@ -40,11 +40,11 @@
         }
 
         function initLights () {
-            var light = new THREE.DirectionalLight(0xaa0201, 0.85);
-            light.position.set(100, 100, 200);
-            scene.add(light);
+            let light1 = new THREE.DirectionalLight(0xaa0201, 0.85);
+            light1.position.set(100, 100, 200);
+            scene.add(light1);
 
-            var light = new THREE.DirectionalLight(0xaa0201, 0.85);
+            let light = new THREE.DirectionalLight(0xaa0201, 0.85);
             light.position.set(-100, 100, 200);
             scene.add(light);
         }
@@ -74,23 +74,23 @@
         }
 		
 		function createLevelLet (level, arr) {
-        	var group = new THREE.Group();
+        	let group = new THREE.Group();
         	group.level = level;
-        	var color = 0xaa0201;//0xE31749;
+        	let color = 0xaa0201;//0xE31749;
         	heart.add(group);
         	groups.push(group);
         	group.position.y = -150 + offset * level;
-			var x = 0;
+			let x = 0;
 
-			for (var i = 0; i < arr.length; ++i) {
+			for (let i = 0; i < arr.length; ++i) {
 				x = arr[i];
         		if (level % 2) {
         			color = 0xffffff;//0xF22C5D;
         		}
 
-        		var material = new THREE.MeshPhongMaterial({ color: color });
-        		var cube0 = new THREE.Mesh(geometry, material);
-        		var cube1 = new THREE.Mesh(geometry, material);	
+        		let material = new THREE.MeshPhongMaterial({ color: color });
+        		let cube0 = new THREE.Mesh(geometry, material);
+        		let cube1 = new THREE.Mesh(geometry, material);	
         		cubes.push(cube0, cube1);
         		cube0.position.set(x, 0, offset/1.5);
         		cube1.position.set(x, 0, -offset/1.5);
@@ -100,12 +100,12 @@
         }
 
         function fitToHeart () {
-        	var animation = new TimelineMax();
-        	for (var i = 0, len = cubes.length; i < len; ++i) {
-        		var cube = cubes[i];
-        		var x = cube.position.x;
-        		var y = cube.position.y;
-        		var z = cube.position.z;
+        	let animation = new TimelineMax();
+        	for (let i = 0, len = cubes.length; i < len; ++i) {
+        		let cube = cubes[i];
+        		let x = cube.position.x;
+        		let y = cube.position.y;
+        		let z = cube.position.z;
         		cube.position.x = parseInt((-1 + 2 * Math.random()) * gearW);
         		cube.position.y = parseInt((-1 + 2 * Math.random()) * gearH);
         		cube.position.z = parseInt((-1 + 2 * Math.random()) * 150);
@@ -118,9 +118,9 @@
             requestAnimationFrame(render);
         }
 		
-		var ru = 0;
+		let ru = 0;
 		function count(){
-			var counter = { val: 0, roundProps: 0 };
+			let counter = { val: 0, roundProps: 0 };
 			TweenMax.to(counter, 5, {
 			  val: 30,
 			  roundProps: "val",
@@ -136,10 +136,10 @@
 		}
 
 		function lastRandom(){
-			var min = 0;
-			var max = 3;
-			var random;
-			var lastRandom = window['localStorage']['oblivion'].substr(-1);
+			let min = 0;
+			let max = 3;
+			let random;
+			let lastRandom = window['localStorage']['oblivion'].substr(-1);
 			if (lastRandom === undefined) {
 				random = Math.floor(Math.random() * (max - min + 1)) + min;
 			}
@@ -152,44 +152,44 @@
 		}
 
 		function rotateHeart () {
-		  var rvar = 4;//lastRandom();
-		  var ls = window['localStorage'];
-		  isNaN( ls['oblivion'] ) ? ls['oblivion'] = 0 : ls['oblivion'] += rvar;
-		  ( ls['oblivion'].substr(-1) === rvar ) ? rvar = 0 : '';
+		  let rlet = 4;//lastRandom();
+		  let ls = window['localStorage'];
+		  isNaN( ls['oblivion'] ) ? ls['oblivion'] = 0 : ls['oblivion'] += rlet;
+		  ( ls['oblivion'].substr(-1) === rlet ) ? rlet = 0 : '';
 		  count();
-		  if( rvar === 0 ){}
-		  if( rvar === 1 ){
-				for (var i = 0, len = groups.length; i < len; ++i) {
-					var group = groups[i];
-					var ran = (i%2===0) ? '-' : '';
+		  if( rlet === 0 ){}
+		  if( rlet === 1 ){
+				for (let i = 0, len = groups.length; i < len; ++i) {
+					let group = groups[i];
+					let ran = (i%2===0) ? '-' : '';
 					animation
 					.to(group.rotation, 0.5, { y: -0.05 * group.level }, 0.025 * group.level)
 					.to(group.rotation, 1.5, { y: 2 * Math.PI / 2, delay: 0.5, ease: Expo.easeInOut }, 0.1 * group.level);
 				}
 		  }
-		  if( rvar === 2 ){
-				for (var i = 0, len = groups.length, r = len-1; i < len; ++i, r-- ) {
-					var group = groups[i];
-					var groupR = groups[ r ];
-					var ran = (i%2===0) ? '-' : '';
+		  if( rlet === 2 ){
+				for (let i = 0, len = groups.length, r = len-1; i < len; ++i, r-- ) {
+					let group = groups[i];
+					let groupR = groups[ r ];
+					let ran = (i%2===0) ? '-' : '';
 					animation
 					.to(groupR.rotation, 0.5, { y: 0.05 * group.level }, 0.025 * groupR.level)
 					.to(group.rotation, 1.25, { y: -Math.PI, delay: 0.5, ease: Expo.easeInOut }, 0.05 * group.level);
 				}
 		  }
-		  if( rvar === 3 ){
-				for (var c = 0, len = cubes.length; c < len; ++c){
-					var cube = cubes[c];
-					var ran = (i%2===0) ? '-' : '';
+		  if( rlet === 3 ){
+				for (let c = 0, len = cubes.length; c < len; ++c){
+					let cube = cubes[c];
+					let ran = (i%2===0) ? '-' : '';
 					animation
 					.to(cube.rotation, 0.5, { x: -0.5, y: -0.5 }, 0)
 					.to(cube.rotation, 1.5, { x: Math.PI, y: 0, delay: 0.5, ease: Expo.easeInOut }, 0.75 * cube.level);
 				}
 		  }
-			for (var i = 0, len = groups.length, r = len-1; i < len; ++i, r-- ) {
-				var group = groups[i];
-				var groupR = groups[ r ];
-				var ran = (i%2===0) ? '-' : '';
+			for (let i = 0, len = groups.length, r = len-1; i < len; ++i, r-- ) {
+				let group = groups[i];
+				let groupR = groups[ r ];
+				let ran = (i%2===0) ? '-' : '';
 				//console.log( i, r );
 				animation
 				.to(group.rotation, 0.2, { x: -0.05 * group.level }, 0)

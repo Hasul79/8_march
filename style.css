@@ -21,7 +21,7 @@ canvas{
     right: -2.5em;
 }
 .wrap{
-    background: transparent url('http://www.mobilmusic.ru/mfile/80/f5/d2/1127392.jpg') no-repeat 50% 50%;
+    background: transparent url('./1127392.jpg') no-repeat 50% 50%;
 	background-size: cover;
 	margin: 0 auto;
 	position: relative;
