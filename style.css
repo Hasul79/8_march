@@ -1,45 +1,43 @@
 * {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  html, body {
-    width: 100%;
-    height: 100%;
-    background: #000;
-  }
-  canvas{
-      background: transparent;
-  }
-  .gear{
-      background: transparent;
-      width: 360px;
-      height: auto;
-      margin: 0 auto;
-      position: absolute;
-      bottom: -2.3em;
-      right: -2.5em;
-  }
-  .wrap{
-      background: transparent url('./1127392.jpg') no-repeat 50% 50%;
-      background-size: cover;
-      margin: 0 auto;
-      position: relative;
-      max-width: 720px;
-      min-height: 420px;
-  }
-  .mari{
-    font-family: 'Lovers Quarrel', cursive;
-    font-size: 80px;
-    font-weight: 400;
-    font-style: normal;
-    color: pink;
-    padding: 0.2em 0 0;
-    text-align: center;
-  }
-  .red_style{
-    color: red;
-    font-size: 46px;
-    font-family:'Lovers Quarrel';
-    font-weight: 300;
-  }
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+canvas{
+    background: transparent;
+}
+.gear{
+    background: transparent;
+    width: 360px;
+	height: auto;
+	margin: 0 auto;
+    position: absolute;
+    bottom: -2.3em;
+    right: -2.5em;
+}
+.wrap{
+    background: transparent url('http://www.mobilmusic.ru/mfile/80/f5/d2/1127392.jpg') no-repeat 50% 50%;
+	background-size: cover;
+	margin: 0 auto;
+	position: relative;
+	max-width: 720px;
+	min-height: 420px;
+}
+.mari{
+  font-family: 'Lovers Quarrel', cursive;
+  font-size: 40px;
+  font-weight: 400;
+  font-style: normal;
+  color: dodgerblue;
+  padding: 0.2em 0 0;
+  text-align: center;
+}
+.green_style{
+  color: lightgreen;
+  font-size: 46px;
+}
