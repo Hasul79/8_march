@@ -1,3 +1,4 @@
+
 let renderer,
   scene,
   camera,
@@ -80,7 +81,7 @@ function createLevelLet(level, arr) {
     group.add(cube0);
     group.add(cube1);
   }
-}
+} 
 
 function fitToHeart() {
   let animation = new TimelineMax();
